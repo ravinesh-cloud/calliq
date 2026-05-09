@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('audio', selectedFile);
 
         try {
-            const response = await fetch("https://calliq-backend-7eik.onrender.com/api/evaluate", {
+            const response = await fetch("https://calliq-backend-5gq7.onrender.com/api/evaluate", {
                 method: 'POST',
                 body: formData
             });
