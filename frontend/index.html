@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallIQ — AI Sales Call Evaluator</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <div class="nav-logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
+                    <path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8" />
+                </svg>
+            </div>
+            <span class="nav-logo-text">Call<span>IQ</span></span>
+        </div>
+        <div class="nav-right">
+            <div class="live-badge">
+                <span class="live-dot"></span>
+                Live
+            </div>
+            <button class="nav-cta"
+                onclick="document.querySelector('.main-grid').scrollIntoView({behavior:'smooth'})">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-grid-bg"></div>
+        <!-- PARTICLE CANVAS -->
+        <canvas id="hero-canvas"></canvas>
+
+        <div class="hero-inner">
+            <div class="hero-left">
+                <div class="hero-tag">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#60a5fa" stroke="none">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                    </svg>
+                    AI-Powered Sales Intelligence
+                </div>
+                <h1>Score Every Sales Call<br>with <span class="gradient-text">AI Precision</span></h1>
+                <p>Upload any employee call recording and instantly know how well they followed your sales script —
+                    section by section, with evidence.</p>
+                <div class="hero-btns">
+                    <button class="btn-primary"
+                        onclick="document.querySelector('.main-grid').scrollIntoView({behavior:'smooth'})">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="17 8 12 3 7 8" />
+                            <line x1="12" y1="3" x2="12" y2="15" />
+                        </svg>
+                        Upload a Call
+                    </button>
+                    <button class="btn-outline" id="how-it-works-btn">How it works →</button>
+                </div>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-num">98%</div>
+                        <div class="stat-lbl">Accuracy</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-num">&lt;60s</div>
+                        <div class="stat-lbl">Analysis</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-num">Tamil</div>
+                        <div class="stat-lbl">+ English</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-num">AI</div>
+                        <div class="stat-lbl">Powered</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Preview Card -->
+            <div class="hero-preview">
+                <div class="preview-header">
+                    <div class="preview-label">Live score preview</div>
+                    <div class="preview-badge">Sample</div>
+                </div>
+                <div class="preview-score-wrap">
+                    <div class="preview-score">87<span>/100</span></div>
+                    <div class="preview-sub">Overall compliance</div>
+                </div>
+                <div class="preview-bar-track">
+                    <div class="preview-fill" style="width: 87%"></div>
+                </div>
+                <div class="preview-rows">
+                    <div class="preview-row">
+                        <span class="preview-row-name">Greeting</span>
+                        <span class="pill pill-y">Partial</span>
+                    </div>
+                    <div class="preview-row">
+                        <span class="preview-row-name">Product Intro</span>
+                        <span class="pill pill-y">Partial</span>
+                    </div>
+                    <div class="preview-row">
+                        <span class="preview-row-name">Interest Check</span>
+                        <span class="pill pill-g">Covered</span>
+                    </div>
+                    <div class="preview-row">
+                        <span class="preview-row-name">Closing</span>
+                        <span class="pill pill-g">Covered</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES STRIP -->
+    <div class="features-strip">
+        <div class="feat-item">
+            <div class="feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2">
+                    <path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                </svg>
+            </div>
+            <div>
+                <div class="feat-title">Auto Transcription</div>
+                <div class="feat-desc">Tamil & English calls transcribed instantly</div>
+            </div>
+        </div>
+        <div class="feat-divider"></div>
+        <div class="feat-item">
+            <div class="feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+            </div>
+            <div>
+                <div class="feat-title">Section Scoring</div>
+                <div class="feat-desc">Each script section scored 0–100 with evidence</div>
+            </div>
+        </div>
+        <div class="feat-divider"></div>
+        <div class="feat-item">
+            <div class="feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2">
+                    <path d="M12 20h9" />
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                </svg>
+            </div>
+            <div>
+                <div class="feat-title">Instant Report</div>
+                <div class="feat-desc">Percentage score with actionable feedback</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="main-grid">
+
+        <!-- UPLOAD CARD -->
+        <div class="card upload-card">
+            <div class="card-header">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2.2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="17 8 12 3 7 8" />
+                    <line x1="12" y1="3" x2="12" y2="15" />
+                </svg>
+                Upload Call Recording
+            </div>
+
+            <div class="upload-zone" id="drop-zone">
+                <div class="upload-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2">
+                        <path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z" />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8" />
+                    </svg>
+                </div>
+                <div class="upload-title">Drop your audio file here</div>
+                <div class="upload-sub">MP3, WAV, M4A &nbsp;·&nbsp; Tamil & English supported</div>
+                <input type="file" id="file-input" accept="audio/*" hidden>
+                <button class="btn-browse" id="browse-btn">Browse Files</button>
+                <div id="file-name-display" class="file-selected"></div>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label">Employee Name <span class="optional">(optional)</span></label>
+                <input type="text" class="emp-input" id="employee-name" placeholder="e.g. Arun Kumar" />
+            </div>
+
+            <button class="btn-analyze" id="analyze-btn" disabled>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                </svg>
+                Analyse Call
+            </button>
+
+            <div class="upload-footer">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Calls are processed securely and not stored
+            </div>
+        </div>
+
+        <!-- RESULTS CARD -->
+        <div class="card results-card" id="results-section" style="display:none;">
+
+            <!-- Loading -->
+            <div class="loading-state" id="loading-overlay" style="display:none;">
+                <div class="loading-ring">
+                    <div class="spinner"></div>
+                    <div class="spinner-inner"></div>
+                </div>
+                <div class="loading-text">AI is analysing your call…</div>
+                <div class="loading-steps">
+                    <div class="loading-step active" id="step-1">
+                        <div class="step-dot"></div>
+                        <span>Transcribing audio</span>
+                    </div>
+                    <div class="loading-step" id="step-2">
+                        <div class="step-dot"></div>
+                        <span>Evaluating sections</span>
+                    </div>
+                    <div class="loading-step" id="step-3">
+                        <div class="step-dot"></div>
+                        <span>Generating score</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div id="results-content">
+
+                <!-- Score Header -->
+                <div class="score-header">
+                    <div class="score-ring-wrap">
+                        <svg class="score-ring-svg" viewBox="0 0 80 80">
+                            <circle cx="40" cy="40" r="34" fill="none" stroke="#dbeafe" stroke-width="6" />
+                            <circle cx="40" cy="40" r="34" fill="none" stroke="url(#scoreGrad)" stroke-width="6"
+                                stroke-linecap="round" stroke-dasharray="213.6" id="score-arc" stroke-dashoffset="213.6"
+                                transform="rotate(-90 40 40)" />
+                            <defs>
+                                <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#1a56db" />
+                                    <stop offset="100%" stop-color="#60a5fa" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="score-ring-text">
+                            <span id="total-score">0</span>
+                            <small>/100</small>
+                        </div>
+                    </div>
+                    <div class="score-meta">
+                        <div class="score-meta-title">Overall Compliance Score</div>
+                        <div class="score-emp" id="score-emp-name"></div>
+                        <div class="score-progress-track">
+                            <div class="score-prog-fill" id="progress-fill"></div>
+                        </div>
+                        <div class="score-status" id="score-status"></div>
+                    </div>
+                </div>
+
+                <!-- Section Scores -->
+                <div class="sections-wrap">
+                    <div class="sections-label">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                        </svg>
+                        Section Breakdown
+                    </div>
+                    <div id="feedback-list"></div>
+                </div>
+
+                <!-- Transcript -->
+                <div class="transcript-wrap">
+                    <div class="transcript-header">
+                        <div class="transcript-header-left">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg>
+                            Call Transcript
+                        </div>
+                        <button class="transcript-copy-btn" id="copy-transcript-btn" title="Copy transcript">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="transcript-body" id="transcript-text"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- HOW IT WORKS MODAL -->
+    <div class="modal-overlay" id="how-it-works-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">How CallIQ Works</div>
+                <button class="modal-close" id="modal-close-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-steps">
+                    <div class="modal-step">
+                        <div class="modal-step-num">01</div>
+                        <div class="modal-step-content">
+                            <div class="modal-step-title">Upload Call Recording</div>
+                            <div class="modal-step-desc">Upload any MP3, WAV, or M4A audio file of your sales call. We
+                                support both Tamil and English recordings.</div>
+                        </div>
+                    </div>
+                    <div class="modal-connector"></div>
+                    <div class="modal-step">
+                        <div class="modal-step-num">02</div>
+                        <div class="modal-step-content">
+                            <div class="modal-step-title">AI Transcription</div>
+                            <div class="modal-step-desc">Gemini AI automatically detects the language, transcribes and
+                                translates the entire conversation into English with speaker labels.</div>
+                        </div>
+                    </div>
+                    <div class="modal-connector"></div>
+                    <div class="modal-step">
+                        <div class="modal-step-num">03</div>
+                        <div class="modal-step-content">
+                            <div class="modal-step-title">Script Evaluation</div>
+                            <div class="modal-step-desc">Our LLM evaluator checks the transcript against your Casagrand
+                                sales script, scoring each section from 0–100 with evidence.</div>
+                        </div>
+                    </div>
+                    <div class="modal-connector"></div>
+                    <div class="modal-step">
+                        <div class="modal-step-num">04</div>
+                        <div class="modal-step-content">
+                            <div class="modal-step-title">Instant Compliance Report</div>
+                            <div class="modal-step-desc">Get an overall compliance score with section-by-section
+                                breakdown, evidence quotes, and actionable improvement notes — all in under 60 seconds.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+
+    <!-- PARTICLE NETWORK SCRIPT -->
+    <script>
+        (function () {
+            const canvas = document.getElementById('hero-canvas');
+            const hero = canvas.parentElement;
+            const ctx = canvas.getContext('2d');
+
+            const PARTICLE_COUNT = 72;
+            const CONNECTION_DIST = 140;
+            const CURSOR_ATTRACT_DIST = 180;
+            const CURSOR_ATTRACT_FORCE = 0.012;
+            const SPEED = 0.4;
+
+            let mouse = { x: -9999, y: -9999 };
+            let particles = [];
+            let W, H, animId;
+
+            function resize() {
+                W = canvas.width = hero.offsetWidth;
+                H = canvas.height = hero.offsetHeight;
+            }
+
+            function rand(min, max) { return Math.random() * (max - min) + min; }
+
+            function createParticles() {
+                particles = [];
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    particles.push({
+                        x: rand(0, W), y: rand(0, H),
+                        vx: rand(-SPEED, SPEED), vy: rand(-SPEED, SPEED),
+                        r: rand(1.8, 3.2),
+                        alpha: rand(0.4, 0.85)
+                    });
+                }
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+
+                // Draw connections
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < CONNECTION_DIST) {
+                            const opacity = (1 - dist / CONNECTION_DIST) * 0.35;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(147, 197, 253, ${opacity})`;
+                            ctx.lineWidth = 0.8;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                // Draw cursor connections
+                for (let i = 0; i < particles.length; i++) {
+                    const dx = particles[i].x - mouse.x;
+                    const dy = particles[i].y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < CURSOR_ATTRACT_DIST) {
+                        const opacity = (1 - dist / CURSOR_ATTRACT_DIST) * 0.6;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.strokeStyle = `rgba(96, 165, 250, ${opacity})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+
+                // Draw particles
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+
+                    // Cursor attraction
+                    const dx = mouse.x - p.x;
+                    const dy = mouse.y - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < CURSOR_ATTRACT_DIST && dist > 0) {
+                        p.vx += (dx / dist) * CURSOR_ATTRACT_FORCE;
+                        p.vy += (dy / dist) * CURSOR_ATTRACT_FORCE;
+                    }
+
+                    // Speed cap
+                    const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                    if (speed > SPEED * 2.5) {
+                        p.vx = (p.vx / speed) * SPEED * 2.5;
+                        p.vy = (p.vy / speed) * SPEED * 2.5;
+                    }
+
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    // Bounce off walls
+                    if (p.x < 0) { p.x = 0; p.vx *= -1; }
+                    if (p.x > W) { p.x = W; p.vx *= -1; }
+                    if (p.y < 0) { p.y = 0; p.vy *= -1; }
+                    if (p.y > H) { p.y = H; p.vy *= -1; }
+
+                    // Glow dot
+                    const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 2.5);
+                    grad.addColorStop(0, `rgba(147, 197, 253, ${p.alpha})`);
+                    grad.addColorStop(1, `rgba(96, 165, 250, 0)`);
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r * 2.5, 0, Math.PI * 2);
+                    ctx.fillStyle = grad;
+                    ctx.fill();
+
+                    // Core dot
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(191, 219, 254, ${p.alpha})`;
+                    ctx.fill();
+                }
+
+                animId = requestAnimationFrame(draw);
+            }
+
+            // Track mouse relative to hero section
+            hero.addEventListener('mousemove', (e) => {
+                const rect = hero.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+            hero.addEventListener('mouseleave', () => {
+                mouse.x = -9999;
+                mouse.y = -9999;
+            });
+
+            window.addEventListener('resize', () => {
+                cancelAnimationFrame(animId);
+                resize();
+                createParticles();
+                draw();
+            });
+
+            resize();
+            createParticles();
+            draw();
+        })();
+    </script>
+
+</body>
+
+</html>

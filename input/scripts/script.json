@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "section": "Greeting",
+        "description": "Agent greets the customer warmly and introduces their name and company name clearly",
+        "weight": 0.20
+    },
+    {
+        "id": 2,
+        "section": "Product Introduction",
+        "description": "Agent introduces Casa Grand and explains what it is — a real estate or housing project",
+        "weight": 0.25
+    },
+    {
+        "id": 3,
+        "section": "Interest Check",
+        "description": "Agent asks the customer if they are interested in buying a house or property",
+        "weight": 0.25
+    },
+    {
+        "id": 4,
+        "section": "Closing",
+        "description": "Agent thanks the customer and wraps up the call politely",
+        "weight": 0.30
+    }
+]

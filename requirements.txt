@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+gunicorn
+openai-whisper
+openai
+python-multipart
+numpy==1.26.4
